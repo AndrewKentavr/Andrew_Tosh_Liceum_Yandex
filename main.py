@@ -35,3 +35,5 @@ if __name__ == '__main__':
     window = MyWindow()
     window.show()
     sys.exit(app.exec_())
+    
+print('КАК У ТЕБЯ ДЕЛА, А?')
