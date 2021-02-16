@@ -22,7 +22,7 @@ class MyWindow(QDialog):
             painter.setPen(QPen(Qt.yellow, 8, Qt.SolidLine))
             painter.setBrush(QBrush(Qt.yellow, Qt.SolidPattern))
 
-            num = random.randint(100, 400)
+            num = random.randint(100, 450)
             painter.drawEllipse(150, 150, num, num)
 
     def paintcircle(self):
