@@ -23,7 +23,8 @@ class MyWindow(QDialog):
             painter.setBrush(QBrush(Qt.yellow, Qt.SolidPattern))
 
             num = random.randint(100, 450)
-            painter.drawEllipse(150, 150, num, num)
+            x_and_y = 150 - (num / 4.3)
+            painter.drawEllipse(x_and_y, x_and_y, num, num)
 
     def paintcircle(self):
         self.should_paint_circle = True
@@ -35,5 +36,3 @@ if __name__ == '__main__':
     window = MyWindow()
     window.show()
     sys.exit(app.exec_())
-    
-print('КАК У ТЕБЯ ДЕЛА, А?')
