@@ -1,0 +1,37 @@
+import sys
+from PyQt5 import uic, QtGui
+from PyQt5.QtWidgets import QApplication, QDialog
+from PyQt5.QtGui import QPainter, QBrush, QPen
+import random
+from PyQt5.QtCore import Qt
+
+
+class MyWindow(QDialog):
+    def __init__(self):
+        super(MyWindow, self).__init__()
+        uic.loadUi('interface.ui', self)
+
+        self.btn.clicked.connect(self.paintcircle)
+        self.should_paint_circle = False
+
+    def paintEvent(self, event):
+        super().paintEvent(event)
+        if self.should_paint_circle:
+            painter = QtGui.QPainter(self)
+            painter.setRenderHint(QPainter.Antialiasing)
+            painter.setPen(QPen(Qt.yellow, 8, Qt.SolidLine))
+            painter.setBrush(QBrush(Qt.yellow, Qt.SolidPattern))
+
+            num = random.randint(100, 400)
+            painter.drawEllipse(150, 150, num, num)
+
+    def paintcircle(self):
+        self.should_paint_circle = True
+        self.update()
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = MyWindow()
+    window.show()
+    sys.exit(app.exec_())
